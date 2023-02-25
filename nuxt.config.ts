@@ -5,6 +5,23 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
 
+  css: ['~/assets/css/main.css'],
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config',
+    exposeConfig: false,
+    injectPosition: 0,
+    viewer: true,
+  },
+
   turnstile: {
     siteKey: '0x4AAAAAAACwG4kjB4kyNBmu',
   },
