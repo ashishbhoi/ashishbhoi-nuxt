@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/turnstile'],
+  modules: [
+    '@nuxtjs/turnstile',
+    '@nuxtjs/tailwindcss'
+  ],
 
   turnstile: {
     siteKey: '0x4AAAAAAACwG4kjB4kyNBmu',
