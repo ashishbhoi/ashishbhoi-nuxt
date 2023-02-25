@@ -8,6 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/turnstile": "^0.1.3",
     "nuxt": "^3.2.2"
   }
 }
