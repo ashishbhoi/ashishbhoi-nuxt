@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center h-screen flex-col">
     <h1 class="text-4xl md:text-7xl text-gray-900 font-bold">Contact Page</h1>
-      <form class="mt-10 container px-6 sm:px-10 md:px-24 lg:px-60" action="" method="post">
+      <form class="mt-10 container px-6 sm:px-10 md:px-24 lg:px-60" action="" method="post" @submit.prevent="onSubmit">
         <div class="flex flex-col md:flex-row lg:container">
           <div class="container mb-4"><label for="first_name" class="form-label">First Name</label>
             <input type="text"
@@ -56,7 +56,27 @@
 
           </textarea>
         </div>
+        <Turnstile v-model="token" :options="{ action: 'vue' }" />
         <button type="submit" class="form-button" id="submit_btn" value="Submit">Submit</button>
       </form>
   </div>
 </template>
+
+<script setup lang="ts">
+import {$fetch} from "ofetch";
+
+const token = ref()
+
+async function onSubmit() {
+  await $fetch('/_turnstile/validate', {
+    method: 'POST',
+    body: {
+      token: token.value,
+    }
+  }).then((response) => JSON.parse(JSON.stringify(response)))
+      .then((response) => {
+        if (response.success) console.log("Validation Complete")
+        else console.log("Validation Failure")
+      });
+}
+</script>
