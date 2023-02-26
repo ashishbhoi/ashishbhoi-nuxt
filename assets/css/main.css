@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .nav-menu {
+        @apply block py-2 pl-5 pr-4 text-gray-600 text-base rounded md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0;
+    }
+    .nav-menu-active {
+        @apply block py-2 pl-5 pr-4 text-gray-50 text-base rounded md:bg-transparent md:text-gray-50 md:p-0;
+    }
+}
