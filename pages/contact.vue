@@ -16,20 +16,24 @@
                                type="text">
                     </div>
                     <div class="container md:ml-6 mb-4"><label class="form-label" for="last_name">Last Name</label>
-                        <input id="last_name" aria-describedby="last_name" class="form-control" name="last_name" placeholder="Last Name"
+                        <input id="last_name" aria-describedby="last_name" class="form-control" name="last_name"
+                               placeholder="Last Name"
                                required type="text">
                     </div>
                 </div>
                 <div class="mb-4"><label class="form-label" for="email_id">Email ID</label>
-                    <input id="email_id" aria-describedby="last_name" class="form-control" name="email_id" placeholder="Email Id"
+                    <input id="email_id" aria-describedby="last_name" class="form-control" name="email_id"
+                           placeholder="Email Id"
                            required type="text">
                 </div>
                 <div class="mb-4"><label class="form-label" for="subject">Subject</label>
-                    <input id="subject" aria-describedby="subject" class="form-control" name="subject" placeholder="Subject"
+                    <input id="subject" aria-describedby="subject" class="form-control" name="subject"
+                           placeholder="Subject"
                            required type="text">
                 </div>
                 <div class="mb-4"><label class="form-label" for="message">Message</label>
-                    <textarea id="message" class="form-control" name="message" placeholder="Please type your message ...."
+                    <textarea id="message" class="form-control" name="message"
+                              placeholder="Please type your message ...."
                               required
                               rows="6">
 
