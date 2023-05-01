@@ -1,11 +1,12 @@
 <template>
     <div id="popup-modal" tabindex="-1"
-         class="fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full" :class="popupModal">
+         class="flex justify-center items-center fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full backdrop-blur-sm"
+         :class="popupModal" :key="changeState">
         <div class="relative w-full max-w-md max-h-full">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <button type="button"
                         class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                        data-modal-hide="popup-modal">
+                        data-modal-hide="popup-modal" @click="closeButton">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -38,10 +39,16 @@
 
 <script lang="ts" setup>
 let popupModal = "hidden"
+let changeState = ref(0)
 const props = defineProps({
-    isActive: Boolean
+    isActive: Boolean,
 })
 if (props.isActive) {
     popupModal = ""
+}
+
+function closeButton() {
+    popupModal = "hidden"
+    changeState.value++
 }
 </script>

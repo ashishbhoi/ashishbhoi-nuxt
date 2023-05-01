@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout :menuName="menu" :name="layout">
-        <div id="contact-page" class="flex items-center justify-center h-screen flex-col">
+        <div id="contact-page" class="flex items-center justify-center h-screen flex-col" :key="modalKey">
             <h1 class="text-4xl md:text-7xl text-gray-900 font-bold">Contact Page</h1>
             <form action="" class="mt-10 container px-6 sm:px-10 md:px-24 lg:px-60" method="post"
                   @submit.prevent="onSubmit">
@@ -51,7 +51,7 @@
 const layout = "nav"
 const menu = "contact"
 const modalKey = ref(0)
-let button: Boolean = false
+let button = false
 
 const token = ref()
 
