@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout :menuName="menu" :name="layout">
-        <div class="flex items-center justify-center h-screen flex-col">
+        <div id="contact-page" class="flex items-center justify-center h-screen flex-col">
             <h1 class="text-4xl md:text-7xl text-gray-900 font-bold">Contact Page</h1>
             <form action="" class="mt-10 container px-6 sm:px-10 md:px-24 lg:px-60" method="post"
                   @submit.prevent="onSubmit">
@@ -43,18 +43,23 @@
                 <button id="submit_btn" class="form-button" type="submit" value="Submit">Submit</button>
             </form>
         </div>
+        <PopUpModal :isActive="button" :key="modalKey"/>
     </NuxtLayout>
 </template>
 
 <script lang="ts" setup>
 const layout = "nav"
 const menu = "contact"
+const modalKey = ref(0)
+let button: Boolean = false
 
 const token = ref()
 
 async function onSubmit() {
+    button = true
+    modalKey.value++
 
-    await $fetch('https://turnstile.ashishbhoi.com', {
+    await $fetch('', {
         method: 'POST',
         body: {
             token: token.value,
