@@ -37,7 +37,7 @@
                               required
                               rows="6">
 
-          </textarea>
+                    </textarea>
                 </div>
                 <NuxtTurnstile v-model="token" :options="{ action: 'vue' }"/>
                 <button id="submit_btn" class="form-button" type="submit" value="Submit">Submit</button>
@@ -53,15 +53,21 @@ const menu = "contact"
 const token = ref()
 
 async function onSubmit() {
-    await $fetch('/_turnstile/validate', {
+
+    await $fetch('https://turnstile.ashishbhoi.com', {
         method: 'POST',
         body: {
             token: token.value,
         }
-    }).then((response) => JSON.parse(JSON.stringify(response)))
+    }).then((response: any) => JSON.parse(response))
         .then((response) => {
-            if (response.success) console.log("Validation Complete")
-            else console.log("Validation Failure")
+            if (response.success) {
+                //TODO: LOGIC TO EMAIL TO MY EMAIL WITH THE USER DETAILS AND SHOW A POP AT THE END TO SHOW THAT THE MESSAGE WAS SUCCESSFULLY SENT
+                console.log("Validation Complete")
+            } else {
+                //TODO: POPUP TO VERIFY THE CLOUDFLARE TURNSTILE CAPTCHA
+                console.log("Validation Failure")
+            }
         });
 }
 </script>
