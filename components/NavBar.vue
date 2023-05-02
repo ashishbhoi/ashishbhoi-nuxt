@@ -50,7 +50,7 @@
                             <li>
                                 <a class="block pr-4 text-gray-300 hover:text-gray-50"
                                    href="https://www.facebook.com/ashish.bhoi.2016"
-                                   target="_blank">
+                                   target="_blank" aria-label="facebook-link">
                                     <svg fill="currentColor" height="20" stroke="currentColor"
                                          stroke-width="0" viewBox="0 0 320 512"
                                          width="20" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +63,7 @@
                             <li>
                                 <a class="block pr-4 text-gray-300 hover:text-gray-50"
                                    href="https://www.instagram.com/ashishkumar_04"
-                                   target="_blank">
+                                   target="_blank" aria-label="instagram-link">
                                     <svg fill="currentColor" height="20" stroke="currentColor"
                                          stroke-width="0" viewBox="0 0 448 512"
                                          width="20" xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@
                             <li>
                                 <a class="block pr-4 text-gray-300 hover:text-gray-50"
                                    href="https://twitter.com/AshishBhoi8"
-                                   target="_blank">
+                                   target="_blank" aria-label="twitter-link">
                                     <svg fill="currentColor" height="20" stroke="currentColor"
                                          stroke-width="0" viewBox="0 0 512 512"
                                          width="20" xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +89,7 @@
                             <li>
                                 <a class="block pr-4 text-gray-300 hover:text-gray-50"
                                    href="https://github.com/ashishbhoi"
-                                   target="_blank">
+                                   target="_blank" aria-label="github-link">
                                     <svg fill="currentColor" height="20" stroke="currentColor"
                                          stroke-width="0" viewBox="0 0 496 512"
                                          width="20" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +102,7 @@
                             <li>
                                 <a class="block pr-4 text-gray-300 hover:text-gray-50"
                                    href="https://www.linkedin.com/in/ashishbhoi"
-                                   target="_blank">
+                                   target="_blank" aria-label="linkedin-link">
                                     <svg fill="currentColor" height="20" stroke="currentColor"
                                          stroke-width="0" viewBox="0 0 448 512"
                                          width="20" xmlns="http://www.w3.org/2000/svg">
