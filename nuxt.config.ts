@@ -4,4 +4,7 @@ export default defineNuxtConfig({
         '@nuxtjs/turnstile',
         '@nuxtjs/tailwindcss'
     ],
+    turnstile: {
+        siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY
+    },
 })

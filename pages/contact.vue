@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout :menuName="menu" :name="layout">
-        <div class="flex items-center justify-center h-screen flex-col">
+        <div id="contact-page" :key="pageRefresh" class="flex items-center justify-center h-screen flex-col">
             <h1 class="text-4xl md:text-7xl text-gray-900 font-bold">Contact Page</h1>
             <form action="" class="mt-10 container px-6 sm:px-10 md:px-24 lg:px-60" method="post"
                   @submit.prevent="onSubmit">
@@ -37,31 +37,51 @@
                               required
                               rows="6">
 
-          </textarea>
+                    </textarea>
                 </div>
                 <NuxtTurnstile v-model="token" :options="{ action: 'vue' }"/>
                 <button id="submit_btn" class="form-button" type="submit" value="Submit">Submit</button>
             </form>
         </div>
+        <PopUpModal :key="modalKey" :isActive="button" :message="message" :taskComplete="taskComplete"/>
     </NuxtLayout>
 </template>
 
 <script lang="ts" setup>
+
 const layout = "nav"
 const menu = "contact"
+const modalKey = ref(0)
+const pageRefresh = ref(0)
+let button = false
+let message = "Sending Email..."
+let taskComplete = false
 
 const token = ref()
 
 async function onSubmit() {
-    await $fetch('/_turnstile/validate', {
+    button = true
+    message = "Sending Email..."
+    taskComplete = false
+    modalKey.value++
+    pageRefresh.value++
+
+    await $fetch('https://turnstile.ashishbhoi.com/', {
         method: 'POST',
         body: {
             token: token.value,
         }
-    }).then((response) => JSON.parse(JSON.stringify(response)))
+    }).then((response: any) => JSON.parse(response))
         .then((response) => {
-            if (response.success) console.log("Validation Complete")
-            else console.log("Validation Failure")
+            if (response.success) {
+                message = "Email sent successfully"
+                taskComplete = true
+                modalKey.value++
+            } else {
+                message = "Failed to send email: "
+                taskComplete = true
+                modalKey.value++
+            }
         });
 }
 </script>
