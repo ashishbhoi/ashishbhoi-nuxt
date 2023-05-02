@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>Contact | Ashish Kumar Bhoi</title>
+    </Head>
     <NuxtLayout :menuName="menu" :name="layout">
         <div id="contact-page" :key="pageRefresh" class="flex items-center justify-center h-screen flex-col">
             <h1 class="text-4xl md:text-7xl text-gray-900 font-bold">Contact Page</h1>
@@ -48,7 +51,10 @@
 </template>
 
 <script lang="ts" setup>
-
+useServerSeoMeta({
+    author: 'Ashish Kumar Bhoi',
+    description: 'Under development Contact Page'
+})
 const layout = "nav"
 const menu = "contact"
 const modalKey = ref(0)
