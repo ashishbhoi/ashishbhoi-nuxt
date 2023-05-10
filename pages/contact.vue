@@ -51,7 +51,6 @@
 </template>
 
 <script lang="ts" setup>
-import {getElementById} from "domutils";
 
 useServerSeoMeta({
     author: 'Ashish Kumar Bhoi',
