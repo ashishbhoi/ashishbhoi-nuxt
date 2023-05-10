@@ -79,7 +79,7 @@ async function onSubmit() {
     modalKey.value++
     pageRefresh.value++
 
-    await $fetch('https://turnstile.ashishbhoi.workers.dev', {
+    await $fetch('https://turnstile.ashishbhoi.com', {
         method: 'POST',
         body: {
             token: token.value,
