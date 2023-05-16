@@ -44,11 +44,12 @@
                 <button id="submit_btn" class="form-button" type="submit" value="Submit">Submit</button>
             </form>
         </div>
-        <PopUpModal :key="modalKey" :isActive="button" :message="message" :taskComplete="taskComplete"/>
+        <PopUpModal :key="modalKey" :isActive="button" :message="message_sent" :taskComplete="taskComplete"/>
     </NuxtLayout>
 </template>
 
 <script lang="ts" setup>
+
 useServerSeoMeta({
     author: 'Ashish Kumar Bhoi',
     description: 'Under development Contact Page'
@@ -58,31 +59,43 @@ const menu = "contact"
 const modalKey = ref(0)
 const pageRefresh = ref(0)
 let button = false
-let message = "Sending Email..."
+let message_sent = "Sending Email..."
 let taskComplete = false
-
 const token = ref()
 
 async function onSubmit() {
+    const first_name = document.getElementById("first_name") as HTMLInputElement
+    const middle_name = document.getElementById("middle_name") as HTMLInputElement
+    const last_name = document.getElementById("last_name") as HTMLInputElement
+    const message_email = document.getElementById("email_id") as HTMLInputElement
+    const message_subject = document.getElementById("subject") as HTMLInputElement
+    const message = document.getElementById("message") as HTMLInputElement
+
     button = true
-    message = "Sending Email..."
+    message_sent = "Sending Email..."
     taskComplete = false
     modalKey.value++
     pageRefresh.value++
 
-    await $fetch('https://turnstile.ashishbhoi.com/', {
+    await $fetch('https://turnstile.ashishbhoi.com', {
         method: 'POST',
         body: {
             token: token.value,
+            first_name: first_name.value,
+            middle_name: middle_name.value,
+            last_name: last_name.value,
+            message_email: message_email.value,
+            message_subject: message_subject.value,
+            message: message.value
         }
     }).then((response: any) => JSON.parse(response))
         .then((response) => {
             if (response.success) {
-                message = "Email sent successfully"
+                message_sent = "Email sent successfully"
                 taskComplete = true
                 modalKey.value++
             } else {
-                message = "Failed to send email: "
+                message_sent = "Failed to send email: "
                 taskComplete = true
                 modalKey.value++
             }
