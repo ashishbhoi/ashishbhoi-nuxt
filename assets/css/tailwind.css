@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-md {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
 @layer components {
     .nav-menu {
         @apply block py-2 pl-5 pr-4 text-gray-400 text-base rounded md:hover:bg-transparent md:border-0 md:hover:text-lime-300 md:p-0;
@@ -11,8 +16,14 @@
         @apply block py-2 pl-5 pr-4 text-white text-base rounded md:bg-transparent md:text-gray-50 md:p-0;
     }
 
+    .form-label {
+        @apply text-md text-gray-900 font-sans px-1;
+    }
+
     .form-control {
-        @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+        @apply bg-gray-50 border border-gray-700 text-gray-900 text-md rounded-lg focus:outline-none focus:border-blue-500 focus:border-2 block w-full p-2.5;
+        /*for Dark Mode*/
+        /*@apply dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;*/
     }
 
     .form-button {
