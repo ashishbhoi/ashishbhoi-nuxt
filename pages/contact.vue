@@ -27,7 +27,7 @@
                 <div class="mb-4"><label class="form-label" for="email_id">Email ID</label>
                     <input id="email_id" aria-describedby="last_name" class="form-control" name="email_id"
                            placeholder="Email Id"
-                           required type="text">
+                           required type="email">
                 </div>
                 <div class="mb-4"><label class="form-label" for="subject">Subject</label>
                     <input id="subject" aria-describedby="subject" class="form-control" name="subject"
@@ -37,12 +37,10 @@
                 <div class="mb-4"><label class="form-label" for="message">Message</label>
                     <textarea id="message" class="form-control" name="message"
                               placeholder="Please type your message ...."
-                              required
-                              rows="6">
-
-                    </textarea>
+                              required type="text"
+                              rows="6"/>
                 </div>
-                <NuxtTurnstile v-model="token" :options="{ action: 'vue' }"/>
+                <NuxtTurnstile v-model="token" :options="{ action: 'vue' }" class="mb-4"/>
                 <button id="submit_btn" class="form-button" type="submit" value="Submit">Submit</button>
             </form>
         </div>

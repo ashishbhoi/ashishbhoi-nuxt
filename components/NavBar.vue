@@ -1,7 +1,7 @@
 <template>
     <nav class="bg-gray-800 px-2 sm:px-4 py-2.5 fixed w-full">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
-            <a class="flex items-center text-gray-100" href="https://www.ashishbhoi.com/">
+            <a class="flex items-center text-gray-100" href="/">
                 <svg fill="currentColor" height="28" stroke="currentColor" stroke-width="0" viewBox="0 0 640 512"
                      width="28"
                      xmlns="http://www.w3.org/2000/svg">
